@@ -23,8 +23,8 @@ public class GithubQuerier {
         List<JSONObject> response = getEvents(user);
         StringBuilder sb = new StringBuilder();
         sb.append("<div>");
-        int i = 0;
-        for (JSONObject event : response) {
+        for (int i = 0; i < response.size(); i++) {
+            JSONObject event = response.get(i);
             // Get event type
             String type = event.getString("type");
             // Get created_at date, and format it in a more pleasant style
