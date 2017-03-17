@@ -1,0 +1,22 @@
+
+
+Step 1: Remove web1, if it exists.
+    docker rm -f web1
+
+Step 2: Check the network allocation for ecs189.
+    docker network ls
+    ecs189_default network
+
+Step 3: Start up web2, with the updated version of the web application.
+    docker run --name web2 --network ecs189_default -d -P activity2
+
+Now that web2 is created, we need to "swap" to the process.
+
+Step 4: Swapping to the new process
+    docker exec ecs189_proxy_1 /bin/bash bin/swap2.sh
+
+This enters the proxy_1 container, runs the swapping shell script, and reloads the proxy.
+
+Step 5: Verify that the correct processes are running.
+    docker ps -a
+
