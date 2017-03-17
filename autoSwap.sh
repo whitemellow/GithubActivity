@@ -20,12 +20,12 @@ esac
 
 #First check to see which image is trying to be swapped: web1 or web2
 #Check to see that the argument is valid
-if [ $1 != "web1" -a $1 != "web2" ]
-    echo "$0: first argument must be a valid 'web1' or 'web2'"
-    exit 1
+if [ $1 != "web1" -a $1 != "web2" ] then
+    echo "$0: first argument must be a valid 'web1' or 'web2'";
+    exit 1;
 fi
 
-if [ $1 == "web1" ]
+if [ $1 == "web1" ] then
     killitif web2
     killitif proxy
 
@@ -40,10 +40,9 @@ if [ $1 == "web1" ]
 
     #Verify that swapping was successful
     docker ps -a
-
 fi
 
-if [ $1 == "web2" ]
+if [ $1 == "web2" ] then
     killitif web1
     killitif proxy
 
