@@ -27,6 +27,7 @@ fi
 
 if [ $1 == "web1" ]
     killitif web2
+    killitif proxy
 
     docker rm -f ecs189_web2
 
@@ -44,6 +45,7 @@ fi
 
 if [ $1 == "web2" ]
     killitif web1
+    killitif proxy
 
     docker rm -f ecs189_web1_1
 
